@@ -1,0 +1,30 @@
+﻿@model List<MVCBartenderApp.Models.Cocktail>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var x in Model)
+            {
+                <tr>
+                    <td><img src="~/imgs/@x.ImagePath" class="img-thumbnail"></td>
+                    <td>@x.Name</td>
+                    <td>@x.Description</td>
+                    <td>@x.Price.ToString("C")</td>
+                    <td>
+                        <form action="PlaceOrder" method="post">
+                            <button type="submit" asp-action="PlaceOrder" asp-route-cocktailID="@x.CocktailId" class="btn btn-outline-primary btn-block">Place Order</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

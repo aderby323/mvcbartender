@@ -1,0 +1,27 @@
+﻿@model MVCBartenderApp.Models.ViewModels.LoginViewModel
+<h2>Login</h2>
+
+<div class="container">
+    @if (ViewData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewData["ErrorMessage"].ToString()
+        </div>
+    }
+<form asp-action="Login" method="post">
+    <div class="form-row">
+        <div class="col-md-6">
+            <label asp-for="Username" class="form-label">Username</label>
+            <input asp-for="Username" type="text" class="form-control">
+            <span asp-validation-for="Username"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Password" class="form-label">Password</label>
+            <input asp-for="Password" type="password" class="form-control">
+            <span asp-validation-for="Password"></span>
+        </div>
+    </div>
+    <hr />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
